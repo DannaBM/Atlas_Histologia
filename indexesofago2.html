@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSeadragon Example</title>
+    <script src="openseadragon.min.js"></script> <!-- Ruta al archivo JavaScript de OpenSeadragon -->
+    <style>
+        #openseadragon {
+            width: 100vw; /* 100% del ancho de la ventana */
+            height: 100vh; /* 100% de la altura de la ventana */
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="openseadragon"></div>
+
+    <script>
+        var viewer = OpenSeadragon({
+            id: "openseadragon",
+            prefixUrl: "images/", // Ruta a las imágenes de los controles de OpenSeadragon
+            tileSources: {
+                type: 'image',
+                url: 'images/esofago2.jpg', // Reemplaza 'esofago.jpg' con el nombre de tu imagen
+                buildPyramid: false,
+                minZoomImageRatio: 1, // Ajusta el nivel de zoom mínimo
+                maxZoomPixelRatio: 2 // Ajusta el nivel de zoom máximo
+            },
+            defaultZoomLevel: 2, // Ajusta el nivel de zoom inicial al abrir la imagen
+            minZoomLevel: 0.5 // Ajusta el nivel de zoom mínimo para ver la imagen completa
+        });
+    </script>
+</body>
+</html>
