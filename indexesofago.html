@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenSeadragon Example</title>
-    <script src="openseadragon.min.js"></script> <!-- Ruta al archivo JavaScript de OpenSeadragon -->
+    <script src="openseadragon.min.js"></script>
     <style>
         #openseadragon {
-            width: 100vw; /* 100% del ancho de la ventana */
-            height: 100vh; /* 100% de la altura de la ventana */
+            width: 100vw;
+            height: 100vh;
             margin: auto;
         }
     </style>
@@ -19,10 +19,10 @@
     <script>
         var viewer = OpenSeadragon({
             id: "openseadragon",
-            prefixUrl: "images/", // Ruta a las imágenes de los controles de OpenSeadragon
+            prefixUrl: "images/",
             tileSources: {
                 type: 'image',
-                src: 'images/esofago.jpg', // Asegúrate de que este sea el nombre correcto de tu imagen
+                url: 'https://DannaBM/Atlas_Histologia/images/esofago.jpg', // Enlace absoluto a la imagen
                 buildPyramid: false,
                 minZoomImageRatio: 1,
                 maxZoomPixelRatio: 2
@@ -33,4 +33,3 @@
     </script>
 </body>
 </html>
-
