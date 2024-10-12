@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSeadragon Example</title>
+    <script src="openseadragon.min.js"></script> <!-- Ruta al archivo JavaScript de OpenSeadragon -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif; /* Fuente Poppins */
+        }
+        .navbar {
+            background-color: purple;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            font-size: 10px; /* Tamaño de fuente para el navbar */
+            font-family: 'Poppins', sans-serif; /* Fuente Poppins para el navbar */
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: calc(100vh - 60px); /* Altura menos la altura del navbar */
+        }
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #000; /* Border margin */
+            margin: 10px; /* Margin around the image */
+	    border-radius: 20px; /* Border radius */
+        }
+        .right-column {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #000; /* Border margin */
+            margin: 10px; /* Margin around the text */
+	    border-radius: 20px; /* Border radius */
+        }
+        #openseadragon {
+            width: 500px; /* Ajusta el tamaño según sea necesario */
+            height: 500px; /* Ajusta el tamaño según sea necesario */
+        }
+        .image-url {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        .text-content {
+            padding: 20px;
+        }
+        .text-content h2 {
+            font-size: 30px;
+            color: purple; /* Color morado */
+        }
+        .text-content p {
+            font-size: 25px;
+            color: black; /* Color negro */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>ESÓFAGO<h1>
+    </div>
+    <div class="container">
+        <div class="left-column">
+            <div id="openseadragon"></div>
+            <div class="image-url">URL de la imagen: <a href="https://veterinaria.ucm.es/data/cont/docs/30-2015-01-18-tr%C3%A1queamod500px.jpg" target="_blank">https://veterinaria.ucm.es/data/cont/docs/30-2015-01-18-tr%C3%A1queamod500px.jpg</a></div>
+            <div class="text-content">
+		<p>Imagen panorámica donde se visualiza en el lado derecho del campo la Tráquea, y del lado izquierdo el Esófago.</p>
+	</div>
+        <div class="right-column">
+            <div class="text-content">
+                <h2>Histología del Esófago</h2>
+                <p>Esta estructura que hace parte del sistema digestivo se encuentra ubicada por delante de la tráquea y comunica a la faringe con el estómago, se encuentra formada por cuatro capas que facilitan cada una de sus funciones.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var viewer = OpenSeadragon({
+            id: "openseadragon",
+            prefixUrl: "images/", // Ruta a las imágenes de los controles de OpenSeadragon
+            tileSources: {
+                type: 'image',
+                url: 'https://veterinaria.ucm.es/data/cont/docs/30-2015-01-18-tr%C3%A1queamod500px.jpg', // Reemplaza 'esofago.jpg' con el nombre de tu imagen
+                buildPyramid: false,
+                minZoomImageRatio: 1, // Ajusta el nivel de zoom mínimo
+                maxZoomPixelRatio: 2 // Ajusta el nivel de zoom máximo
+            },
+            defaultZoomLevel: 0.5, // Ajusta el nivel de zoom inicial al abrir la imagen
+            minZoomLevel: 0.5 // Ajusta el nivel de zoom mínimo para ver la imagen completa
+        });
+    </script>
+</body>
+</html>
