@@ -6,15 +6,53 @@
     <title>OpenSeadragon Example</title>
     <script src="openseadragon.min.js"></script> <!-- Ruta al archivo JavaScript de OpenSeadragon -->
     <style>
+        body {
+            display: flex;
+            margin: 0;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .left-column {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #000; /* Border margin */
+            margin: 10px; /* Margin around the image */
+        }
+        .right-column {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #000; /* Border margin */
+            margin: 10px; /* Margin around the text */
+        }
         #openseadragon {
-            width: 100vw; /* 100% del ancho de la ventana */
-            height: 100vh; /* 100% de la altura de la ventana */
-            margin: auto;
+            width: 90%; /* Ajusta según sea necesario */
+            height: 90%; /* Ajusta según sea necesario */
+        }
+        .text-content {
+            padding: 20px;
         }
     </style>
 </head>
 <body>
-    <div id="openseadragon"></div>
+    <div class="container">
+        <div class="left-column">
+            <div id="openseadragon"></div>
+        </div>
+        <div class="right-column">
+            <div class="text-content">
+                <h1>Título del Texto</h1>
+                <p>Este es un ejemplo de contenedor de texto que se encuentra a la par con la imagen en la columna izquierda. Puedes añadir aquí cualquier información que desees.</p>
+            </div>
+        </div>
+    </div>
 
     <script>
         var viewer = OpenSeadragon({
