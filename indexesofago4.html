@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSeadragon Example</title>
+    <script src="openseadragon.min.js"></script> <!-- Ruta al archivo JavaScript de OpenSeadragon -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif; /* Fuente Poppins */
+        }
+        .navbar {
+            background-color: purple;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            font-size: 10px; /* Tamaño de fuente para el navbar */
+            font-family: 'Poppins', sans-serif; /* Fuente Poppins para el navbar */
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: calc(100vh - 60px); /* Altura menos la altura del navbar */
+        }
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #000; /* Border margin */
+            margin: 10px; /* Margin around the image */
+	    border-radius: 20px; /* Border radius */
+        }
+        .right-column {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #000; /* Border margin */
+            margin: 10px; /* Margin around the text */
+	    border-radius: 20px; /* Border radius */
+        }
+        #openseadragon {
+            width: 500px; /* Ajusta el tamaño según sea necesario */
+            height: 500px; /* Ajusta el tamaño según sea necesario */
+        }
+        .image-url {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        .text-content {
+            padding: 20px;
+        }
+        .text-content h2 {
+            font-size: 30px;
+            color: purple; /* Color morado */
+        }
+        .text-content p {
+            font-size: 25px;
+            color: black; /* Color negro */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>ESÓFAGO<h1>
+    </div>
+    <div class="container">
+        <div class="left-column">
+            <div id="openseadragon"></div>
+            <div class=<a>Fotomicrografía de la mucosa, muestra a mayor aumento la mucosa que tapiza la pared del esófago en un corte teñido con H&E.</a>
+		<p>URL de la imagen:</p> <a href="https://www.udocz.com/apuntes/62106/ross-histologia-7-edicion-texto-y-atlas" target="_blank">-	Histología Texto y Atlas de Ross; Wojciech Pawlina, 7ª ed. Wolters Kluwer. Pág 622.</a></div>
+	</div>
+        <div class="right-column">
+            <div class="text-content">
+                <h2>Mucosa del Esófago</h2>
+                <p>La mucosa que tapiza al esófago en toda su longitud se compone de una mucosa interna, la lámina propia y una capa muscular de la mucosa.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var viewer = OpenSeadragon({
+            id: "openseadragon",
+            prefixUrl: "images/", // Ruta a las imágenes de los controles de OpenSeadragon
+            tileSources: {
+                type: 'image',
+                url: 'https://i.postimg.cc/HLJKSznz/Es-fago4.jpg', // Reemplaza 'esofago.jpg' con el nombre de tu imagen
+                buildPyramid: false,
+                minZoomImageRatio: 1, // Ajusta el nivel de zoom mínimo
+                maxZoomPixelRatio: 2 // Ajusta el nivel de zoom máximo
+            },
+            defaultZoomLevel: 0.5, // Ajusta el nivel de zoom inicial al abrir la imagen
+            minZoomLevel: 0.5 // Ajusta el nivel de zoom mínimo para ver la imagen completa
+        });
+    </script>
+</body>
+</html>
