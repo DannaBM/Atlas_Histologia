@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSeadragon Example</title>
+    <script src="openseadragon.min.js"></script> <!-- Ruta al archivo JavaScript de OpenSeadragon -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif; /* Fuente Poppins */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Cambiado a flex-start */
+            height: 100vh;
+            box-sizing: border-box;
+            padding: 10px; /* Agregado para un poco de espacio alrededor */
+        }
+        .navbar {
+            background-color: purple;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 20px; /* Tamaño de fuente ajustado */
+            font-family: 'Poppins', sans-serif; /* Fuente Poppins para el navbar */
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .content {
+            border: 2px solid #000; /* Border margin */
+            border-radius: 20px; /* Border radius */
+            padding: 20px;
+            text-align: center;
+            width: 100%; /* Ajusta el tamaño según sea necesario */
+            max-width: 800px; /* Tamaño máximo para el contenedor */
+            box-sizing: border-box;
+            margin-top: 20px; /* Espacio adicional entre el navbar y el contenido */
+        }
+        #openseadragon {
+            width: 100%; /* Ajusta el tamaño para ocupar todo el contenedor */
+            height: 80vh; /* Ajusta el tamaño según sea necesario */
+            max-height: 600px; /* Limita la altura máxima para la imagen */
+            margin: 0 auto;
+        }
+        .image-url {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        .text-content {
+            margin-top: 20px;
+        }
+        .text-content h2 {
+            font-size: 24px; /* Tamaño de fuente ajustado */
+            color: purple; /* Color morado */
+        }
+        .text-content p {
+            display: none; /* Ocultar el contenido del elemento <p> */
+        }
+        .image-description {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>ESÓFAGO</h1>
+    </div>
+    <div class="content">
+        <div id="openseadragon"></div>
+        <div class="image-description">Fotomicrografía del tercio superior del esófago (fibras de músculo esquelético)</div>
+        <div class="image-url">URL de la imagen: <a href="http://wzar.unizar.es/acad/histologia/paginas_he/05_ApDig/Esofago/EsofagoCT_12etq.htm" target="_blank">http://wzar.unizar.es/acad/histologia/paginas_he/05_ApDig/Esofago/EsofagoCT_12etq.htm</a></div>
+        <div class="text-content">
+            <h2>Tercios esofágicos- Tercio superior</h2>
+            <p>Entre estas dos capas de la muscular externa, se encuentra el plexo de Auerbach (Plexo mientérico), que es el encargado de proveer inervación motora a ambas capas e inervación secreto-motora a la mucosa.</p>
+        </div>
+    </div>
+
+    <script>
+        var viewer = OpenSeadragon({
+            id: "openseadragon",
+            prefixUrl: "images/", // Ruta a las imágenes de los controles de OpenSeadragon
+            tileSources: {
+                type: 'image',
+                url: 'https://i.postimg.cc/DyFm6J77/imagen-15-esfg.jpg', // Reemplaza 'esofago.jpg' con el nombre de tu imagen
+                buildPyramid: false,
+                crossOriginPolicy: 'Anonymous', // Añade esta línea para evitar problemas de CORS
+                ajaxWithCredentials: false
+            },
+            defaultZoomLevel: 0.8, // Ajusta el nivel de zoom inicial al abrir la imagen
+            minZoomLevel: 0.5, // Ajusta el nivel de zoom mínimo para ver la imagen completa
+            maxZoomPixelRatio: 2 // Ajusta el nivel de zoom máximo
+        });
+    </script>
+</body>
+</html>
